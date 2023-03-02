@@ -12,17 +12,14 @@ class Indeed:
     
     def return_url(self,work_name,location="Remote"):
         url = self.MAIN_URL + f"{work_name}&l={location}"
-        self.get_data(url)
-    
+        return url     
     def get_data(self,url):
-        driver = webdriver.Firefox()
+        driver = webdriver.Chrome()
         driver.get(url)
-        time.sleep(5)
-        elements = driver.find_element(By.XPATH,'//*[@id="job_abbae8e96a294a15"]')
-        print(elements.get_attribute("href"))
-        # return [i.get_attribute("href") for i in elements]
+        time.sleep(5)                        
+        elements = driver.find_elements(By.XPATH,'/html/body/main/div/div[1]/div/div/div[5]/div[1]/div[5]/div/ul/li/div/div[1]/div/div[1]/div/table[1]/tbody/tr/td/div[1]/h2/a')
+        return [i.get_attribute("href") for i in elements]
 
             
 indeedbot = Indeed()
-indeedbot.return_url("django")
-# indeedbot.get_data(url)
+# print(indeedbot.get_data(indeedbot.return_url("django")))
