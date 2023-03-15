@@ -10,7 +10,7 @@ from platformas import djinni, remotebot,jobot,indeedbot
 
 logging.basicConfig(level=logging.INFO)
 
-bot_token = "6287333417:AAFQvVQCTdnU8aQDqUHX4U4lZZcpvdocyV0"
+bot_token = "YOUR_TOKEN"
 
 bot = Bot(token=bot_token)
 dp = Dispatcher(bot)
