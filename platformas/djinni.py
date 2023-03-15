@@ -1,7 +1,7 @@
-from urllib import response
 from bs4 import BeautifulSoup as bs
 import requests
-import json
+
+
 
 class DjinniBot:
     MAIN_URL = "https://djinni.co"
@@ -17,10 +17,10 @@ class DjinniBot:
         if experience:
             url += f"&exp_level={experience}y"
         
-        print(url)
         return self.find_job(url+'&page=')
         
     def find_job(self,url):
+        
         count=1
         # response = requests.get(url+str(count))
         # soup = bs(response.content,"html.parser")
@@ -29,10 +29,11 @@ class DjinniBot:
         # print(number)
         # while count<=int(number):       
         response = requests.get(url+str(count))
+
         soup = bs(response.content,"html.parser")
         # pag = soup.find_all("a",class_='page-link')
         jobs = soup.find_all('a',class_='profile')
-        job = [ i['href'] for i in jobs ][:5]
+        job = [self.MAIN_URL + i['href'] for i in jobs ][:5]
         # count+=1
         return job
 djinni = DjinniBot()

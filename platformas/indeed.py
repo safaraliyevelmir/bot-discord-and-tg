@@ -12,7 +12,8 @@ class Indeed:
     
     def return_url(self,work_name,location="Remote"):
         url = self.MAIN_URL + f"{work_name}&l={location}"
-        return url     
+        return self.get_data(url)
+
     def get_data(self,url):
         driver = webdriver.Chrome()
         driver.get(url)

@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
+
 class JoBot:
 
     MAIN_URL = "https://jobot.com"
@@ -8,7 +9,7 @@ class JoBot:
         pass
 
     def return_url(self,work_name):
-        return self.MAIN_URL + "/search?q=" + work_name + "&l=remote"
+        return self.get_data(self.MAIN_URL + "/search?q=" + work_name + "&l=remote")
     
     def get_data(self,url):
         response = requests.get(url)
