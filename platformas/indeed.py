@@ -4,6 +4,15 @@ import time
 import os
 
 # driver = webdriver.Firefox()
+# https://www/indeed.com/jobs?q=django&l=Remote&start=0
+#from selenium import webdriver
+# from selenium.webdriver.common.by
+#from import os
+#
+# driver = webdriver.Firefox()
+# drvier = webdriver.Firefox()
+# driver = webdriver.Firfox()
+
 #https://www.indeed.com/jobs?q=django&l=Remote&start=0
 class Indeed:
     MAIN_URL = "https://www.indeed.com/jobs?q="
