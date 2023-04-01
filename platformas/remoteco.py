@@ -16,7 +16,12 @@ class Remote:
         return self.get_data(self.MAIN_URL + work_name)
     
     def get_data(self,url):
-        driver = webdriver.Chrome()
+        # driver = webdriver.Chrome()
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--no-sandbox")
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         driver.get(url)
         time.sleep(2)
         links = driver.find_elements(By.CLASS_NAME,"stretched-link")
